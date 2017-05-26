@@ -18,17 +18,24 @@ file {'/usr/local/bin/caf':
   source => 'puppet:///modules/audit_history_command/caf',
   mode   => '755',
   owner  => 'root',
-  before => Exec['edit_bashrc']
-}
-exec {'edit_bashrc':
-  command => "/usr/bin/echo $bash_rc_text >> /etc/bashrc",
   subscribe => File['/usr/local/bin/hcmnt']
 }
+file {'/tmp/bashrc_lines':
+  ensure => present,
+  source => 'puppet:///modules/audit_history_command/bashrc_lines',
+  mode   => '755',
+  owner  => 'root',
+  subscribe => File['/usr/local/bin/hcmnt']
+}
+exec {'edit_bashrc':
+  command => "/usr/bin/cat /tmp/bashrc_lines >> /etc/bashrc",
+  subscribe => File['/tmp/bashrc_lines']
+}
+
 cron {'create_tomorrow_audit_file':
   command => '/usr/local/bin/caf',
   user    => 'root',
   hour    => 22,
   minute  => 23,
-  subscribe => File['/usr/local/bin/caf']
 }
 }
