@@ -1,0 +1,5 @@
+source /usr/local/bin/hcmnt
+export hcmntextra='date "+%Y%m%d %R"'
+export PROMPT_COMMAND='hcmnt -eityu'
+PS1=\'\[\033[01;31m\][\u@\h \w ]\$ \[\033[00m\]\'
+PS1='\[\033[01;31m\][\u@\h \w ]\$ \[\033[00m\]'
