@@ -10,7 +10,6 @@
 ## Overview
 
 This is a module to install and configure an immutable log file that contains the bash commands history for all users.
-the line with the command contains also the timestamp,user,source ip,current directory
 
 ## Module Description
 
