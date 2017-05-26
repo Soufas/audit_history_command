@@ -1,0 +1,32 @@
+{
+  "author": "Seif Karoui",
+  "dependencies": [],
+  "license": "Apache-2.0",
+  "name": "soufas-audit_history_command",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ]
+    }],
+  "project_page": "https://github.com/Soufas/audit_history_command",
+  "requirements": [],
+  "source": "https://github.com/Soufas/audit_history_command",
+  "issues_url": "https://github.com/Soufas/audit_history_command/issues",
+  "summary": "Module to configure and install immutable commands history log",
+  "tags": ["audit","history","bash","commands"],
+  "version": "0.1.0"
+}

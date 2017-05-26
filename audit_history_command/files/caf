@@ -1,0 +1,17 @@
+#!/bin/bash
+
+### Create audit file
+### This script creates a file for the audit script and gives it 622 permissions so that all users can write on it.
+
+        TOMORROW=`/usr/bin/date -d "+1day" +%Y%m%d`
+        FILE="/var/audit/audit_$TOMORROW.log"
+
+### Create the file
+
+/usr/bin/touch $FILE
+
+### Set permissions
+/usr/bin/chmod 622 $FILE
+
+### Make it append only
+/usr/bin/chattr +a $FILE
