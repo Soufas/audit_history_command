@@ -1,11 +1,4 @@
-class audit_history_command::install_config(
-  $bash_rc_text = '
-source /usr/local/bin/hcmnt
-export hcmntextra=\'date "+%Y%m%d %R"\'
-export PROMPT_COMMAND=\'hcmnt -eityu\'
-PS1=\'\[\033[01;31m\][\u@\h \w ]\$ \[\033[00m\]\'
-',
-)
+class audit_history_command::install_config
 {
 file {'/usr/local/bin/hcmnt':
   ensure => present,
