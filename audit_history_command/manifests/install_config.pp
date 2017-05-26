@@ -22,7 +22,8 @@ file {'/tmp/bashrc_lines':
 }
 exec {'edit_bashrc':
   command => "/usr/bin/cat /tmp/bashrc_lines >> /etc/bashrc",
-  subscribe => File['/tmp/bashrc_lines']
+  subscribe => File['/tmp/bashrc_lines'],
+  refreshonly => true,
 }
 
 cron {'create_tomorrow_audit_file':
