@@ -5,7 +5,8 @@ export hcmntextra=\'date "+%Y%m%d %R"\'
 export PROMPT_COMMAND=\'hcmnt -eityu\'
 PS1=\'\[\033[01;31m\][\u@\h \w ]\$ \[\033[00m\]\'
 ',
-){ 
+)
+{
 file {'/usr/local/bin/hcmnt':
   ensure => present,
   source => 'puppet:///modules/audit_history_command/hcmnt',
