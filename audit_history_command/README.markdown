@@ -29,7 +29,8 @@ Example of lines generated in the audit log file:
 ```puppet
 less /etc/bashrc ### root /dev/pts/0 (122.30.68.5) 20170526 19:07:17 /home/seif/
 su root ### seif /dev/pts/0 (122.30.68.7) 20170526 19:11:39 /etc/
-}
+cd /etc/puppetlabs/code/environments/production/modules/ ### root /dev/pts/1 (192.168.1.4) 20170527 02:52 /root -> /etc/puppetlabs/code/environments/production/modules
+ls ### root /dev/pts/1 (192.168.1.4) 20170527 02:52 /etc/puppetlabs/code/environments/production/modules
 ```
 
 Example of immutability of the audit log file even with root user:
