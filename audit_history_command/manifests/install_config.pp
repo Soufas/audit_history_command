@@ -29,12 +29,11 @@ file {'/tmp/bashrc_lines':
   owner     => 'root',
   subscribe => File['/usr/local/bin/hcmnt']
 }
-$date = generate ('/usr/bin/date +%Y%m%d')
-file {'/var/audit/audit_${date}':
-  ensure    => present,
-  mode      => '622',
-  owner     => 'root',
-  subscribe => File['/usr/local/bin/hcmnt']
+
+exec {'add_initial_audit_file':
+  command     => 'touch /var/audit/audit_`date +%Y%m%d`',
+  subscribe   => File['/usr/local/bin/hcmnt'],
+  refreshonly => true,
 }
 exec {'edit_bashrc':
   command     => '/usr/bin/cat /tmp/bashrc_lines >> /etc/bashrc',
