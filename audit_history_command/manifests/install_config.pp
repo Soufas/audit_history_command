@@ -31,7 +31,7 @@ file {'/tmp/bashrc_lines':
 }
 
 exec {'add_initial_audit_file':
-  command     => '/usr/bin/touch /var/audit/audit_`date +%Y%m%d`.log',
+  command     => '/usr/bin/mkdir /var/audit/ && /usr/bin/touch /var/audit/audit_`date +%Y%m%d`.log',
   subscribe   => File['/usr/local/bin/hcmnt'],
   refreshonly => true,
 }
