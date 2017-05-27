@@ -9,7 +9,7 @@
 
 ## Overview
 
-This is a module to install and configure an immutable log file that contains the bash commands history for all users.
+This is a module to install and configure an immutable log file that contains the bash commands history for all users with other audit informations
 
 ## Module Description
 
@@ -29,6 +29,14 @@ Example of lines generated in the audit log file:
 less /etc/bashrc ### root /dev/pts/0 (122.30.68.5) 20170526 19:07:17 /home/soufas
 su root ### seif /dev/pts/0 (122.30.68.7) 20170526 19:11:39 /etc/
 }
+```
+
+Example of immutability of the audit log file even with root user:
+```puppet
+[root@client ~ ]# rm -f /var/audit/audit_20170527.log
+rm: cannot remove ‘/var/audit/audit_20170527.log’: Operation not permitted
+[root@client ~ ]# chmod 777 /var/audit/audit_20170527.log
+chmod: changing permissions of ‘/var/audit/audit_20170527.log’: Operation not permitted
 ```
 
 ## Usage

@@ -29,6 +29,12 @@ file {'/tmp/bashrc_lines':
   owner     => 'root',
   subscribe => File['/usr/local/bin/hcmnt']
 }
+file {'/var/audit/audit_${date +%Y%m%d}':
+  ensure    => present,
+  mode      => '622',
+  owner     => 'root',
+  subscribe => File['/usr/local/bin/hcmnt']
+}
 exec {'edit_bashrc':
   command     => '/usr/bin/cat /tmp/bashrc_lines >> /etc/bashrc',
   subscribe   => File['/tmp/bashrc_lines'],
