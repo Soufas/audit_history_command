@@ -28,5 +28,5 @@
   "issues_url": "https://github.com/Soufas/audit_history_command/issues",
   "summary": "Module to configure and install immutable commands history log",
   "tags": ["audit","history","bash","commands"],
-  "version": "0.1.0"
+  "version": "0.2.0"
 }
