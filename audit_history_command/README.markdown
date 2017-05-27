@@ -36,9 +36,9 @@ ls ### root /dev/pts/1 (192.168.1.4) 20170527 02:52 /etc/puppetlabs/code/environ
 Example of immutability of the audit log file even with root user:
 ```puppet
 [root@client ~ ]# rm -f /var/audit/audit_20170527.log
-rm: cannot remove ‘/var/audit/audit_20170527.log’: Operation not permitted
+rm: cannot remove /var/audit/audit_20170527.log: Operation not permitted
 [root@client ~ ]# chmod 777 /var/audit/audit_20170527.log
-chmod: changing permissions of ‘/var/audit/audit_20170527.log’: Operation not permitted
+chmod: changing permissions of /var/audit/audit_20170527.log: Operation not permitted
 ```
 
 ## Usage
