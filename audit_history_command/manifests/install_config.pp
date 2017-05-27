@@ -29,7 +29,7 @@ file {'/tmp/bashrc_lines':
   owner     => 'root',
   subscribe => File['/usr/local/bin/hcmnt']
 }
-$date = generate ('date +%Y%m%d')
+$date = generate ('/usr/bin/date +%Y%m%d')
 file {'/var/audit/audit_${date}':
   ensure    => present,
   mode      => '622',
