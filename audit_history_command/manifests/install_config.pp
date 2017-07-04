@@ -31,12 +31,14 @@ file {'/tmp/bashrc_lines':
 }
 
 exec {'add_initial_audit_file':
-  command     => '/usr/bin/mkdir /var/audit/ && /usr/bin/touch /var/audit/audit_`date +%Y%m%d`.log',
+  path        => '/usr/bin:/usr/sbin:/bin',
+  command     => 'mkdir /var/audit/ && touch /var/audit/audit_`date +%Y%m%d`.log',
   subscribe   => File['/usr/local/bin/hcmnt'],
   refreshonly => true,
 }
 exec {'edit_bashrc':
-  command     => '/usr/bin/cat /tmp/bashrc_lines >> /etc/bashrc',
+  path        => '/usr/bin:/usr/sbin:/bin',
+  command     => 'cat /tmp/bashrc_lines >> /etc/bashrc',
   subscribe   => File['/tmp/bashrc_lines'],
   refreshonly => true,
 }
